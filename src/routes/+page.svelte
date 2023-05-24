@@ -58,16 +58,7 @@
 					<p class="m-2 text-primary-500">{form.error}</p>
 				{/if}
 				<div class="flex flex-col gap-5">
-					<input class="input" type="number" name="amount" placeholder="Amount" value="12" />
-					<!-- <select name="quoteAsset" class="select">
-						<option value="USDT">USDT</option>
-						<option value="USDC">USDC</option>
-						<option value="XIN">XIN</option>
-						<option value="BTC">BTC</option>
-						<option value="EOS">EOS</option>
-						<option value="DOGE">DOGE</option>
-						<option value="BNB">BNB</option>
-					</select> -->
+					<input class="input" type="number" name="amount" placeholder="Amount" min="0" />
 					<button class="btn variant-filled-primary" type="submit">Donate</button>
 				</div>
 			</form>

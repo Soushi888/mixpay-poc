@@ -19,6 +19,8 @@ export const actions: Actions = {
 		formData.append('quoteAmount', amount);
 		formData.append('quoteAssetId', 'USD');
 		formData.append('settlementAssetId', await getAssetId('USDT'));
+		formData.append('paiementAssetId', await getAssetId('USDT'));
+		formData.append('returnTo', '/success');
 
 		console.log(formData);
 
