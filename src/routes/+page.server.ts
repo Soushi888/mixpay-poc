@@ -1,6 +1,5 @@
-import type { Actions } from '@sveltejs/kit';
+import { fail, type Actions } from '@sveltejs/kit';
 import { config } from 'dotenv';
-import type { T } from 'vitest/dist/types-71ccd11d';
 
 config();
 
@@ -8,28 +7,30 @@ const MIXPAY_API_URL = 'https://api.mixpay.me/v1';
 
 export const actions: Actions = {
 	createShortLink: async ({ request }) => {
-		const formData = await request.formData();
-		const { amount, quoteAsset } = Object.fromEntries(formData);
-		const payeeId = process.env.MIXPAY_PAYEE_ID ?? '';
+		let formData = await request.formData();
+		const { amount } = Object.fromEntries(formData);
+		const payeeId = process.env.MIXPAY_PAYEE_ID;
 
-		const quoteAssetId = await getAssetId(quoteAsset as string);
+		if (!payeeId) return fail(400, { error: 'Payee ID not found' });
+		if (!amount) return fail(400, { error: 'Amount not found' });
 
-		const body = {
-			payeeId,
-			quoteAmount: amount,
-			quoteAssetId,
-			settlementAssetId: await getAssetId('USDT')
-		};
+		formData = new FormData();
+		formData.append('payeeId', payeeId);
+		formData.append('quoteAmount', amount);
+		formData.append('quoteAssetId', 'USD');
+		formData.append('settlementAssetId', await getAssetId('USDT'));
 
-		console.log(body);
+		console.log(formData);
 
-		const response = await fetch(`${MIXPAY_API_URL}/payments`, {
+		const response = await fetch(`${MIXPAY_API_URL}/one_time_payment`, {
 			method: 'POST',
-			body: JSON.stringify(body)
+			body: formData
 		});
 
-		const data = await response.json();
+		const { data } = await response.json();
 		console.log(data);
+
+		return { url: `https://mixpay.me/code/${data.code}` };
 	}
 };
 
