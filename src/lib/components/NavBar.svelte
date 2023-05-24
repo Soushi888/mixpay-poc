@@ -4,8 +4,7 @@
 
 <AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotLead="place-self-start gap-3">
 	<svelte:fragment slot="lead">
-		<a href="/">Donnation</a>
-		<a href="/products">Products</a>
+		<a href="/">Donation</a>
 	</svelte:fragment>
-	<h1 class="h1">MixPay Proof of Concept</h1>
+	<h1 class="h1">EdenOnBitcoin Donation</h1>
 </AppBar>

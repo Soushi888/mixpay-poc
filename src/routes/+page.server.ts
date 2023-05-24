@@ -40,7 +40,7 @@ async function getAssetId(asset: string): Promise<string> {
 	const assetId = data.find((item: any) => item.symbol === asset)?.chainAsset.id;
 
 	if (!assetId) {
-		throw new Error(`Asset ${asset} not found`);
+		throw new Error(`Asset "${asset}" not found`);
 	}
 
 	return assetId;
