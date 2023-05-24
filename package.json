@@ -38,5 +38,8 @@
 		"typescript": "^5.0.0",
 		"vite": "^4.3.0",
 		"vitest": "^0.25.3"
+	},
+	"dependencies": {
+		"mixpayjs": "^3.0.0"
 	}
 }

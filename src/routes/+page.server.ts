@@ -1,36 +1,30 @@
 import { fail, type Actions } from '@sveltejs/kit';
 import { config } from 'dotenv';
+import client from 'mixpayjs';
 
+const mixpay = client();
 config();
 
 const MIXPAY_API_URL = 'https://api.mixpay.me/v1';
 
 export const actions: Actions = {
 	createShortLink: async ({ request }) => {
-		let formData = await request.formData();
+		const formData = await request.formData();
 		const { amount } = Object.fromEntries(formData);
 		const payeeId = process.env.MIXPAY_PAYEE_ID;
 
 		if (!payeeId) return fail(400, { error: 'Payee ID not found' });
 		if (!amount) return fail(400, { error: 'Amount not found' });
 
-		formData = new FormData();
-		formData.append('payeeId', payeeId);
-		formData.append('quoteAmount', amount);
-		formData.append('quoteAssetId', 'USD');
-		formData.append('settlementAssetId', await getAssetId('USDT'));
-		formData.append('paiementAssetId', await getAssetId('USDT'));
-		formData.append('returnTo', '/success');
-
-		console.log(formData);
-
-		const response = await fetch(`${MIXPAY_API_URL}/one_time_payment`, {
-			method: 'POST',
-			body: formData
+		const data = await mixpay.createOneTimePaymentLink({
+			payeeId,
+			quoteAmount: amount,
+			quoteAssetId: 'USD',
+			settlementAssetId: await getAssetId('USDT'),
+			paiementAssetId: await getAssetId('USDT'),
+			returnTo: '/success',
+			orderId: '1234567890'
 		});
-
-		const { data } = await response.json();
-		console.log(data);
 
 		return { url: `https://mixpay.me/code/${data.code}` };
 	}
