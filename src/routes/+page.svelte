@@ -51,7 +51,7 @@
 			</div>
 		</div>
 
-		<div class="card p-5">
+		<!-- <div class="card p-5">
 			<h3 class="h3 mb-2 font-bold">Amount</h3>
 			<form action="?/createShortLink" method="post" use:enhance>
 				{#if form?.error}
@@ -62,6 +62,6 @@
 					<button class="btn variant-filled-primary" type="submit">Donate</button>
 				</div>
 			</form>
-		</div>
+		</div> -->
 	</div>
 </div>
