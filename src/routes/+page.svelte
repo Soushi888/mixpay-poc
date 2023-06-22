@@ -22,6 +22,13 @@
 			<div class="flex flex-col gap-2">
 				<a
 					class="btn variant-filled-primary"
+					href="https://mixpay.me/41127124/1usd"
+					target="_blank"
+				>
+					1 $US
+				</a>
+				<a
+					class="btn variant-filled-primary"
 					href="https://mixpay.me/41127124/5usd"
 					target="_blank"
 				>
