@@ -15,8 +15,6 @@
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center flex-col">
-	<h2 class="h2 m-4">Help me improve web3 donations projects.</h2>
-
 	<div class="flex gap-5 justify-around">
 		<div class="card p-5">
 			<h3 class="h3 mb-2 font-bold text-center">Payment links</h3>
