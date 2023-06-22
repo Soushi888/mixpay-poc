@@ -19,7 +19,7 @@
 
 	<div class="flex gap-5 justify-around">
 		<div class="card p-5">
-			<h3 class="h3 mb-2 font-bold">Payment links</h3>
+			<h3 class="h3 mb-2 font-bold text-center">Payment links</h3>
 			<img src="mixpay-btn.svg" alt="MixPay Button" class="mb-5" />
 			<div class="flex flex-col gap-4">
 				<PaymentLink amount={1} />
