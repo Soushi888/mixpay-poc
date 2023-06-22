@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import PaymentLink from '$lib/components/payment-link.svelte';
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
@@ -19,42 +20,13 @@
 	<div class="flex gap-5 justify-around">
 		<div class="card p-5">
 			<h3 class="h3 mb-2 font-bold">Payment links</h3>
-			<div class="flex flex-col gap-2">
-				<a
-					class="btn variant-filled-primary hover:variant-ghost-primary"
-					href="https://mixpay.me/41127124/1usd"
-					target="_blank"
-				>
-					1 $US
-				</a>
-				<a
-					class="btn variant-filled-primary hover:variant-ghost-primary"
-					href="https://mixpay.me/41127124/5usd"
-					target="_blank"
-				>
-					5 $US
-				</a>
-				<a
-					class="btn variant-filled-primary hover:variant-ghost-primary"
-					href="https://mixpay.me/41127124/10usd"
-					target="_blank"
-				>
-					10 $US
-				</a>
-				<a
-					class="btn variant-filled-primary hover:variant-ghost-primary"
-					href="https://mixpay.me/41127124/20usd"
-					target="_blank"
-				>
-					20 $US
-				</a>
-				<a
-					class="btn variant-filled-primary hover:variant-ghost-primary"
-					href="https://mixpay.me/41127124/donation"
-					target="_blank"
-				>
-					Choose Amount
-				</a>
+			<img src="mixpay-btn.svg" alt="MixPay Button" class="mb-5" />
+			<div class="flex flex-col gap-4">
+				<PaymentLink amount={1} />
+				<PaymentLink amount={5} />
+				<PaymentLink amount={10} />
+				<PaymentLink amount={20} />
+				<PaymentLink />
 			</div>
 		</div>
 
