@@ -21,35 +21,35 @@
 			<h3 class="h3 mb-2 font-bold">Payment links</h3>
 			<div class="flex flex-col gap-2">
 				<a
-					class="btn variant-filled-primary"
+					class="btn variant-filled-primary hover:variant-ghost-primary"
 					href="https://mixpay.me/41127124/1usd"
 					target="_blank"
 				>
 					1 $US
 				</a>
 				<a
-					class="btn variant-filled-primary"
+					class="btn variant-filled-primary hover:variant-ghost-primary"
 					href="https://mixpay.me/41127124/5usd"
 					target="_blank"
 				>
 					5 $US
 				</a>
 				<a
-					class="btn variant-filled-primary"
+					class="btn variant-filled-primary hover:variant-ghost-primary"
 					href="https://mixpay.me/41127124/10usd"
 					target="_blank"
 				>
 					10 $US
 				</a>
 				<a
-					class="btn variant-filled-primary"
+					class="btn variant-filled-primary hover:variant-ghost-primary"
 					href="https://mixpay.me/41127124/20usd"
 					target="_blank"
 				>
 					20 $US
 				</a>
 				<a
-					class="btn variant-filled-primary"
+					class="btn variant-filled-primary hover:variant-ghost-primary"
 					href="https://mixpay.me/41127124/donation"
 					target="_blank"
 				>
