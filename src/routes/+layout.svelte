@@ -13,9 +13,8 @@
 <AppShell>
 	<svelte:fragment slot="header">
 		<NavBar />
-		<h2 class="h2 m-4 text-center text-3xl">Help me improve web3 donations projects.</h2>
 	</svelte:fragment>
-
+	<h2 class="h2 m-4 text-center text-3xl">Help me improve web3 donations projects.</h2>
 	<slot />
 
 	<svelte:fragment slot="pageFooter">
